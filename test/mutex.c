@@ -9,10 +9,11 @@ pthread_mutex_t mutex;
 
 void* routine() {
 	void *ptr = NULL;
-    for (int i = 0; i < 10000000; i++) {
-       //pthread_mutex_lock(&mutex);
-        mails++;
-       //pthread_mutex_unlock(&mutex);
+    for (int i = 0; i < 100000000; i++) 
+	{
+		pthread_mutex_lock(&mutex);
+		mails++;
+		pthread_mutex_unlock(&mutex);
         // read mails
         // increment
         // write mails
