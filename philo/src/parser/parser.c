@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/17 16:46:04 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/12/17 16:49:04 by fnieves-         ###   ########.fr       */
+/*   Created: 2022/12/29 12:08:25 by fnieves           #+#    #+#             */
+/*   Updated: 2022/12/29 12:45:55 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-#define PHILO_H
+#include "../../include/philo.h"
 
-
-#endif
+void print_error(void)
+{
+	write (1, ERROR_ARG, ft_strlen(ERROR_ARG));
+}

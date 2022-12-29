@@ -8,7 +8,14 @@ pthread_mutex_t mutex_fuel;
 int fuel = 0;
 void	*fuel_filling(void *arg)
 {
-	printf("Fillng fuel\n");
+	for (int i = 0; i < 5; i++)
+	{
+		pthread_mutex_lock(&mutex_fuel);
+		fuel = fuel + 15;
+		printf("Fillng this much fuel: %d\n", fuel);
+		pthread_mutex_unlock(&mutex_fuel);
+		sleep(1);
+	}
 	void *ptr = NULL;
 	arg = ptr;
 	return (arg);
@@ -16,7 +23,18 @@ void	*fuel_filling(void *arg)
 
 void	*car(void *arg)
 {
-	printf("Car here to get fuel\n");
+	pthread_mutex_lock(&mutex_fuel);
+	if (fuel >= 40)
+	{
+		fuel = fuel - 40;
+		printf("Car got this fuel. Now left: %d\n", fuel);
+	}
+	else 
+	{
+		printf("Car got NO fuel. fuel left: %d\n", fuel);
+	}
+	pthread_mutex_unlock(&mutex_fuel);
+	//sleep(1);
 	void *ptr = NULL;
 	arg = ptr;
 	return (arg);
