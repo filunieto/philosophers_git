@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   atoi_phi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 14:46:01 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/05 15:43:32 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/05 18:29:43 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,32 @@ static int	ft_isdigit(char c)
 	return (c >= '0' && c <= '9');
 }
 
-int	ft_atoi2(const char *str)
-{
-	int nbr;
-	int sign = 1;
-	nbr = 0;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while(ft_isdigit(*str))
-	{
-		nbr = nbr * 10 + (*str - '0');
-		str++;
-	}
-	return (nbr * sign);
-}
+// int	atoi_phi2(const char *str) //borrar
+// {
+// 	int nbr;
+// 	int sign = 1;
+// 	nbr = 0;
+// 	while (ft_isspace(*str))
+// 		str++;
+// 	if (*str == '-' || *str == '+')
+// 	{
+// 		if (*str == '-')
+// 			sign = -1;
+// 		str++;
+// 	}
+// 	while(ft_isdigit(*str))
+// 	{
+// 		nbr = nbr * 10 + (*str - '0');
+// 		str++;
+// 	}
+// 	return (nbr * sign);
+// }
 
 
-int	ft_atoi(const char *nptr) //ft_atoi_philo
+int	atoi_phi(const char *nptr) //atoi_phi_philo
 {
 	int	i;
-	int	res;
+	unsigned int	res; //si no ponemos esto, imprimira valores mayores que el rango int : res < -2147483648) || res > +2147483647
 	int	sign;
 
 	i = 0;
@@ -61,13 +61,17 @@ int	ft_atoi(const char *nptr) //ft_atoi_philo
 			sign = -1;
 		i++;
 	}
-	while (nptr[i] && res <= 2147483648)
+	while (nptr[i] != 0 && res <= 2147483648)
 	{
 		if (!ft_isdigit(nptr[i]))
 			return (-1);
 		res = res * 10 + ((nptr[i++] - '0'));
 	}
-	if ((sign == -1 && res > 2147483648) || (sign == 1 && res > 2147483647))
+	//printf ("en  atoi res = %i \n", res);
+	if ((sign == -1 && res > 2147483648) || (sign == 1 && res > 2147483647)) // 1 316 134 912
+	{
+		//printf ("en if atoi res = %i \n", res);
 		return (-1);
-	return (sign * (res));
+	}
+	return ((int)(sign * res));
 }

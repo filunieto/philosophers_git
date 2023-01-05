@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define NUM_PHILOSOPHERS 5
+#define ERR_NUM_PHILOSOPHERS 5
 #define NUM_FORKS 5
 
 // This solution uses mutexes (mutual exclusion locks) to synchronize
@@ -50,7 +50,7 @@ void *philosopher(void *arg) {
 }
 
 int main() {
-  pthread_t philosophers[NUM_PHILOSOPHERS];
+  pthread_t philosophers[ERR_NUM_PHILOSOPHERS];
 
   // Initialize the forks
   for (long i = 0; i < NUM_FORKS; i++) {
@@ -58,12 +58,12 @@ int main() {
   }
 
   // Create the philosopher threads
-  for (long i = 0; i < NUM_PHILOSOPHERS; i++) {
+  for (long i = 0; i < ERR_NUM_PHILOSOPHERS; i++) {
     pthread_create(&philosophers[i], NULL, philosopher, (void *)i);
   }
 
   // Wait for the philosopher threads to finish
-  for (long i = 0; i < NUM_PHILOSOPHERS; i++) {
+  for (long i = 0; i < ERR_NUM_PHILOSOPHERS; i++) {
     pthread_join(philosophers[i], NULL);
   }
 

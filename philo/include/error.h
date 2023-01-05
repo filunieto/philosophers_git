@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:34:37 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/05 15:13:34 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/05 19:36:46 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,29 @@
 # define RESET  "\e[0m"
 
 
-# define ERROR_ARG "number of arguments incorrect\n"
-# define USAGE GREEN"Usage: ./philo <nbr_of_philosophers> <time\
-_to_die> <time_to_eat> <time_to_sleep> [max meals]\n\
-"CYAN"<nbr_of_philosophers>\tnumber of philosophers at the table\n\
-<time_to_die>\t\tmaximum amount of time (in ms) a philosopher can spend\
- without eating\n\
-<time_to_eat>\t\ttime (in ms) a philosopher needs to finish her meal\n\
-<time_to_sleep>\t\ttime (in ms) a philosopher spends sleeping\n\
-[max meals]\t\tnumber of times each philosopher must eat (optional \
-parameter)"
+# define ERROR_ARG RED"number of arguments incorrect\n"
+
 # define OK "todo ok" //borrar
-# define NUM_PHILO "number of philosophers incorrect. At least 1 \
+# define ERR_NUM_PHILO RED"number of philosophers incorrect. At least 1 \
 philosopher required\n"
-# define NUM_PHILO_POS "Please at least 1 \
+# define ERR_NUM_PHILO_2 RED"Please at least 1 \
 philosopher required\n"
-# define ERR_ARG_TIME "Time format not correct: \
+# define ERR_ARG_TIME RED"Time format not correct: \
 in [ms] and not less than 0\n"
+# define ERR_MALLOC RED"Error: malloc not correct\n"
+
+
+# define USAGE GREEN"Usage: ./philo <nbr_of_philosophers> <time\
+_to_die> <time_to_eat> <time_to_sleep> [min meals]\n\
+"CYAN"<nbr_of_philosophers>\tnumber of philosophers at the table\n\
+<time_to_die>\t\tmaximum  time [ms] a philosopher can spend\
+ without eating\n\
+<time_to_eat>\t\ttime [ms] a philosopher needs to finish her meal\n\
+<time_to_sleep>\t\ttime [ms] a philosopher spends sleeping\n\
+[min meals]\t\tminimal number of times each philosopher must eat (optional \
+parameter), otherwise simulation stops when a philosopher dies.\n\
+"RESET"Example: ./philo 2 120 20 20 2\n\
+Example: ./philo 2 800 200 300\n\
+Example: ./philo 4 400 200 200"
 
 #endif

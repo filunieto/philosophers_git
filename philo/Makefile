@@ -6,7 +6,7 @@
 #    By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/29 11:17:17 by fnieves           #+#    #+#              #
-#    Updated: 2023/01/05 14:48:21 by fnieves          ###   ########.fr        #
+#    Updated: 2023/01/05 21:03:46 by fnieves          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,13 @@ FLAGS		=	-Wall -Wextra -Werror
 FLAGS_PHILO	=	-pthread  -lpthread
 RM			=	rm -f 
 
-SRC			=	main.c							\
-				src/parser/parser.c				\
-				src/parser/error.c 				\
-				tools/libft_tools/ft_strlen.c	\
-				tools/libft_tools/ft_atoi.c		\
+SRC			=	main.c								\
+				src/parser/parser.c					\
+				src/parser/error.c 					\
+				tools/libft_tools/ft_strlen.c		\
+				tools/libft_tools/atoi_phi.c		\
+				tools/libft_tools/ft_calloc.c		\
+				src/initialize/initialize.c			\
 
 GREEN		=	\033[32;1m
 RED			=	\033[0;31m
@@ -47,4 +49,4 @@ re: fclean all
 .PHONY: all clean fclean re
 
 
-# gcc -Wall -Wextra -Werror -pthread  -lpthread threads_main.c -o threads_main
+# gcc -Wall -Wextra -Werror -pthread  -lpthread threads_main_philo.c -o threads_main_philo
