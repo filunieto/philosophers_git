@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:34:37 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/05 14:22:59 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/05 15:13:34 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,11 @@ _to_die> <time_to_eat> <time_to_sleep> [max meals]\n\
 [max meals]\t\tnumber of times each philosopher must eat (optional \
 parameter)"
 # define OK "todo ok" //borrar
+# define NUM_PHILO "number of philosophers incorrect. At least 1 \
+philosopher required\n"
+# define NUM_PHILO_POS "Please at least 1 \
+philosopher required\n"
+# define ERR_ARG_TIME "Time format not correct: \
+in [ms] and not less than 0\n"
 
 #endif
