@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:46:04 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/12/29 12:41:01 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/05 14:03:17 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@
 # include "error.h"
 
 //philo/src/parser
-void	print_error(void);
+int	print_error(char *error_mes);
 
 //philo/tools/libft_tools
 int		ft_strlen(const char *str);
+
+void	init_struct(t_main *philo);
 
 
 #endif
