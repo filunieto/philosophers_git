@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:46:04 by fnieves-          #+#    #+#             */
-/*   Updated: 2023/01/05 21:18:45 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/06 21:13:59 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_philosop
 	t_status_phi			status_phi;
 	pthread_t				*th;
 	pthread_mutex_t			mutx_left_fork;
-	pthread_mutex_t			mutx_right_fork;
+	pthread_mutex_t			*mutx_right_fork; //puntero ?
 	int						has_fork;
 	int						min_times_eat;
 	const struct timeval	start_eating;
@@ -48,6 +48,8 @@ typedef struct s_main_philo
 	int					min_times_eat;
 	int					loop; //1 si no tenemos parametro, minimo No comidas
 	t_philosop			*philos;
+	pthread_mutex_t		mutex_run;
+	pthread_mutex_t		mutex_print;
 }		t_main_philo;
 
 

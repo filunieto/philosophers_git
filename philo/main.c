@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:27:48 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/06 19:57:04 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/06 21:23:28 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	main(int argc, char**argv)
 	if (init_philo(&philo))
 		exit(EXIT_FAILURE);
 	if (mutex_philo(&philo))
+		exit(EXIT_FAILURE);
+	if (create_philo(&philo))
 		exit(EXIT_FAILURE);
 	//write(1, OK, ft_strlen(OK));
 	return (0);

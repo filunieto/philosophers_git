@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:46:04 by fnieves-          #+#    #+#             */
-/*   Updated: 2023/01/06 20:36:16 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/06 21:28:09 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@
 //philo/src/parser
 int		print_error(char *error_mes, int usage);
 int		free_err_exit(t_main_philo *philo);
-
-
-int	parser_arg(int argc, char**argv, t_main_philo *philo);
+int		parser_arg(int argc, char**argv, t_main_philo *philo);
 
 
 //philo/tools/libft_tools
@@ -39,10 +37,12 @@ int		ft_strlen(const char *str);
 int		atoi_phi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 
-
+//philo/src/initialize
 void	init_struct(t_main_philo *philo);
 int		init_philo(t_main_philo *philo);
 int		mutex_philo(t_main_philo *philo);
 
+//philo/src/create
+int		create_philo(t_main_philo *philo);
 
 #endif

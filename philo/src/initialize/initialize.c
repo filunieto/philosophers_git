@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 21:02:31 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/06 21:05:19 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/06 21:19:37 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,21 +82,19 @@ int	mutex_philo(t_main_philo *philo)
 	i = -1;
 	while (++i < philo->numb_ph)
 	{
-		if (pthread_mutex_init(&philo->philos[i].mutx_left_fork, NULL));
+		//write(1, "en while mutex\n", 24);
+		if (pthread_mutex_init(&philo->philos[i].mutx_left_fork, NULL) != 0)
 			return (print_error(ERR_INI_MUTX, 0));
 	}
 	if (philo->numb_ph > 1)
 	{
 		i = -1;
 		while (++i < philo->numb_ph) //hay que poner el adress & below?
-		{
-			philo->philos[i].mutx_right_fork = philo->philos[((i + 1) % philo->numb_ph)].mutx_left_fork;
-		}
+			philo->philos[i].mutx_right_fork = &philo->philos[((i + 1) % philo->numb_ph)].mutx_left_fork;
 	}
-	// ADD this 
-	// if (pthread_mutex_init(&philo->mutex_print, NULL) != 0)
-	// 	return (error_msg("Error: Failed to initialize mutex\n"));
-	// if (pthread_mutex_init(&philo->mutex_running, NULL) != 0)
-	// 	return (error_msg("Error: Failed to initialize mutex\n"));
+	if (pthread_mutex_init(&philo->mutex_print, NULL) != 0)
+		return (print_error(ERR_INI_MUTX, 0));
+	if (pthread_mutex_init(&philo->mutex_run, NULL) != 0)
+		return (print_error(ERR_INI_MUTX, 0));
 	return (EXIT_SUCCESS);
 }
