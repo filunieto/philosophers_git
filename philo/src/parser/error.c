@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 14:58:30 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/05 20:52:37 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/06 20:35:33 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	print_error(char *error_mes, int usage)
 	return(EXIT_FAILURE);
 }
 
-void	free_err_exit(t_main_philo *philo)
+int	free_err_exit(t_main_philo *philo)
 {
 	int i;
 
@@ -33,7 +33,7 @@ void	free_err_exit(t_main_philo *philo)
 	}
 	free(philo->philos);
 	philo->philos = NULL;
-	exit (print_error(ERR_MALLOC, 0)); //en este caso no haría falta poner a NULL ya que hacemos exit
+	return(print_error(ERR_MALLOC, 0)); //en este caso no haría falta poner a NULL ya que hacemos exit
 }
 
 // int	print_error2(char *error_mes)

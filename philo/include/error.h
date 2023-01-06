@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:34:37 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/05 19:36:46 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/06 20:41:56 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ philosopher required\n"
 # define ERR_ARG_TIME RED"Time format not correct: \
 in [ms] and not less than 0\n"
 # define ERR_MALLOC RED"Error: malloc not correct\n"
+# define ERR_INI_MUTX RED"Error: Failed to initialize mutex\n"
 
 
 # define USAGE GREEN"Usage: ./philo <nbr_of_philosophers> <time\

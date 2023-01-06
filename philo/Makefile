@@ -6,7 +6,7 @@
 #    By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/29 11:17:17 by fnieves           #+#    #+#              #
-#    Updated: 2023/01/05 21:03:46 by fnieves          ###   ########.fr        #
+#    Updated: 2023/01/06 20:26:51 by fnieves          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ FLAGS		=	-Wall -Wextra -Werror
 FLAGS_PHILO	=	-pthread  -lpthread
 RM			=	rm -f 
 
+OBJ			=	$(SRC:.c=.o)
 SRC			=	main.c								\
 				src/parser/parser.c					\
 				src/parser/error.c 					\
@@ -27,22 +28,27 @@ SRC			=	main.c								\
 GREEN		=	\033[32;1m
 RED			=	\033[0;31m
 CYAN		=	\033[0;36m
+YELLOW		=	\033[1;33m
+BLUE		=	\033[1;34m
+PINK		=	\033[1;35m
+RESET		=	\e[0m
 
-OBJ			=	${SRC:.c=.o}
-
-$(NAME): $(OBJ)
-	@${CC} ${FLAGS} ${OBJ} -o ${NAME}
-	@echo "$(GREEN) philo compiled succesfully!"
 
 all: $(NAME)
 
+$(NAME): $(OBJ)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@echo "$(GREEN) $(NAME) compiled succesfully!"
+
+
+
 clean:
 	@${RM} ${OBJ}
-	@echo "\033[0;33mobject files of philo were removed."
+	@echo "$(YELLOW)object files of philo were removed."
 
 fclean: clean
 	@${RM} ${NAME}
-	@echo "\033[0;33m$(NAME) file  was also removed."
+	@echo "$(BLUE)$(NAME) file  was also removed.$(RESET)"
 
 re: fclean all
 
