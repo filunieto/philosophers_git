@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:27:48 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/06 21:23:28 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/07 23:12:25 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 /*
 	cambiar la carpeta libft_tools por tools y anidar en src
+	
 	Philosop has finished eating, they put their forks back
 	on the table and start sleeping. Once awake, they start 
 	thinking again.
@@ -32,6 +33,7 @@ void	init_struct(t_main_philo *philo)
 	philo->time_sleep = 0;
 	philo->min_times_eat = 0;
 	philo->loop = 0; // presuponemos que hay min numero de comida (no hay loop)
+	philo->running = 1; //la cena está teniendo lugar
 }
 
 int	main(int argc, char**argv)

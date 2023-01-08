@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:46:04 by fnieves-          #+#    #+#             */
-/*   Updated: 2023/01/06 21:28:09 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/08 16:55:53 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <time.h>
 
 # include "struct.h"
-# include "error.h"
+# include "messages.h" 
 
 //philo/src/parser
 int		print_error(char *error_mes, int usage);
@@ -43,6 +43,15 @@ int		init_philo(t_main_philo *philo);
 int		mutex_philo(t_main_philo *philo);
 
 //philo/src/create
-int		create_philo(t_main_philo *philo);
+int				create_philo(t_main_philo *philo);
+void			*simulation_loop(void *arg);
+void			*simulation_noloop(void *arg);
+int				print_time_msg(t_philosop *philos, char *messg);
+int				gettimediff(struct timeval *t);
+long			get_actual_time(void);
+t_status_phi	time_countdown(t_philosop *philos, int time_count);
+
+
+
 
 #endif

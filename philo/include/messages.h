@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.h                                            :+:      :+:    :+:   */
+/*   messages.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:34:37 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/06 20:41:56 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/08 17:01:19 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_H
-# define ERROR_H
+#ifndef MESSAGES_H
+# define MESSAGES_H
 
 /* ************************************************************************** */
 /* COLORS																	..*/
@@ -40,6 +40,7 @@ philosopher required\n"
 in [ms] and not less than 0\n"
 # define ERR_MALLOC RED"Error: malloc not correct\n"
 # define ERR_INI_MUTX RED"Error: Failed to initialize mutex\n"
+# define ERR_INI_THR RED"Error: Failed to create pthread\n"
 
 
 # define USAGE GREEN"Usage: ./philo <nbr_of_philosophers> <time\
@@ -55,4 +56,7 @@ parameter), otherwise simulation stops when a philosopher dies.\n\
 Example: ./philo 2 800 200 300\n\
 Example: ./philo 4 400 200 200"
 
+# define LEFT_FORK YELLOW"just took the left fork\n" //igual no es necesario el slash n
+# define RIGHT_FORK YELLOW"an also took the right fork\n"
+# define PHILO_EATS GREEN"started eating\n"
 #endif

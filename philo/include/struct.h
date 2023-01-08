@@ -6,14 +6,20 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:46:04 by fnieves-          #+#    #+#             */
-/*   Updated: 2023/01/06 21:13:59 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/07 13:38:27 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 #define STRUCT_H
 
-typedef enum e_status_phi //pasarlo a #define
+/*
+	Tenemos una etructura que apunta a otra estructura y así sucesivamente
+	porque solo podemos pasar un parametro a las funciones de los threads.
+	Y esta es la manera de que dichas funciones accedan a toda la información
+*/
+
+typedef enum e_status_phi
 {
 	EATS,
 	SLEEPS,
@@ -34,23 +40,24 @@ typedef struct s_philosop
 	const struct timeval	start_eating;
 	struct s_philosop		*next;
 	struct s_main_philo		*philo;
-
-	
 }	t_philosop;
 
 
 typedef struct s_main_philo
 {
-	int					numb_ph;
-	int					time_die;
-	int					time_eat;
-	int					time_sleep;
-	int					min_times_eat;
-	int					loop; //1 si no tenemos parametro, minimo No comidas
-	t_philosop			*philos;
-	pthread_mutex_t		mutex_run;
-	pthread_mutex_t		mutex_print;
+	int						numb_ph;
+	int						time_die;
+	int						time_eat;
+	int						time_sleep;
+	int						min_times_eat;
+	int						loop; //1 si no tenemos parametro, minimo No comidas
+	t_philosop				*philos;
+	pthread_mutex_t			mutex_run;
+	pthread_mutex_t			mutex_print;
+	const struct timeval	start_dinner;
+	int						running; //la cena está teniendo lugar
 }		t_main_philo;
+
 
 
 #endif

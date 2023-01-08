@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 21:02:31 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/06 21:19:37 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/08 15:10:35 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 	Creando filosofos:
-	Los pares comienzan pensando y listos par comer, y los 
+	Los pares comienzan pensando y listos para comer, y los 
 	impares durmiendo.
 	Se les asigna la estructura prnicpal
 	Cominezan sin tenedor
@@ -32,7 +32,7 @@ void	new_philosop(int i, t_philosop *philos ,t_main_philo *philo)
 	philos->philo = philo; //la estructura del filosofo apunta a la estructura main
 	philos->next = NULL;
 	philos->min_times_eat = philo->min_times_eat;
-	gettimeofday((struct timeval *)&philos->start_eating, NULL); //nos da la hora en ms
+	gettimeofday((struct timeval *)&philos->start_eating, NULL); //nos da la hora en ms .Momento en el que nace el filososo
 	//write(1, "despues de gettime\n", 30);
 }
 

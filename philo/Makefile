@@ -6,13 +6,13 @@
 #    By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/29 11:17:17 by fnieves           #+#    #+#              #
-#    Updated: 2023/01/06 21:29:17 by fnieves          ###   ########.fr        #
+#    Updated: 2023/01/08 16:45:06 by fnieves          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	philo
 CC 			=	cc
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror - g -pthread  -lpthread
 FLAGS_PHILO	=	-pthread  -lpthread
 RM			=	rm -f 
 
@@ -25,6 +25,8 @@ SRC			=	main.c								\
 				tools/libft_tools/ft_calloc.c		\
 				src/initialize/initialize.c			\
 				src/create/create.c					\
+				src/create/time.c					\
+				src/create/eats.c					\
 
 GREEN		=	\033[32;1m
 RED			=	\033[0;31m
