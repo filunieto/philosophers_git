@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:34:37 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/08 17:01:19 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/09 03:39:09 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define PINK	"\033[1;35m"
 # define GRAY	"\033[1;30m"
 # define CYAN	"\033[1;36m"
+# define CYAN7	"\033[1;37m"
 # define RED	"\033[1;31m"
 # define MAGENTA "\e[35m"
 # define BLUEE  "\e[32m"

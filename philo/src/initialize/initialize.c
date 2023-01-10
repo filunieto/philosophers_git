@@ -6,7 +6,7 @@
 /*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 21:02:31 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/08 15:10:35 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/08 22:44:18 by fnieves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,13 @@ void	new_philosop(int i, t_philosop *philos ,t_main_philo *philo)
 	philos->next = NULL;
 	philos->min_times_eat = philo->min_times_eat;
 	gettimeofday((struct timeval *)&philos->start_eating, NULL); //nos da la hora en ms .Momento en el que nace el filososo
+	//la estructura de arriba podría ser long en lugar de (struct timeval *)??
 	//write(1, "despues de gettime\n", 30);
 }
 
 /*
 	Creamos el array a punteros a la estrcutura con el numero de philosofos total
-	Malloquemos cada el thread y le asignamos un nuevo filosofo
+	Malloquemos cada  thread y le asignamos un nuevo filosofo
 	Desues de crear los filosofos 
 	philo->philos[i].next = &philo->philos[(i + 1) % philo->numb_ph];
 	los encadenamos en una lista cerrada
