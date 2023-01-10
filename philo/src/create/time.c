@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:11:13 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/09 03:19:14 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/10 21:06:53 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ int	print_time_msg(t_philosop *philos, char *messg)
 */
 int	gettimediff(struct timeval *t)
 {
-	struct timeval	*now;
+	struct timeval	now;
 	int				diff_time;
 	//struct timeval	*time_diff;     usar esta variable para devolverla en lugar 
 	gettimeofday(&now, NULL); //habría que asegurarla?
-	diff_time = ((now->tv_sec - t->tv_sec) * 1000 + (now->tv_usec - t->tv_usec) / 1000);
+	diff_time = ((now.tv_sec - t->tv_sec) * 1000 + (now.tv_usec - t->tv_usec) / 1000);
 
 	return (diff_time);
 }

@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+         #
+#    By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/29 11:17:17 by fnieves           #+#    #+#              #
-#    Updated: 2023/01/08 16:45:06 by fnieves          ###   ########.fr        #
+#    Updated: 2023/01/10 21:21:02 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	philo
 CC 			=	cc
-FLAGS		=	-Wall -Wextra -Werror - g -pthread  -lpthread
+FLAGS		=	-Wall -Wextra -Werror -g -pthread  -lpthread
 FLAGS_PHILO	=	-pthread  -lpthread
 RM			=	rm -f 
 

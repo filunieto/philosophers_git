@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eats.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:44:35 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/08 23:58:42 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/10 21:15:41 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 /*
 	
 */
-int	philo_takeone(t_philosop *philos, pthread_mutex_t *mutx)
+int	fork_takeone(t_philosop *philos, pthread_mutex_t *mutx)
 {
 	int	res;
 
 	res = 0;
 	pthread_mutex_lock(mutx);
-	if (philos->has_fork = 0)
+	if (philos->has_fork == 0)
 	{
 		philos->has_fork = 1;
 		res = 1;

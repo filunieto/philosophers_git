@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 21:24:20 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/09 03:41:32 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/10 19:48:16 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	*simulation_loop(void *arg)
 	philos = (t_philosop *)arg;
 	while (1)
 	{
-		if (philos->status_phi = THINKS) //si está pensadno , que intente comer
+		if (philos->status_phi == THINKS) //si está pensadno , que intente comer
 			philo_eats(philos);
-		if (philos->status_phi = SLEEPS)
+		if (philos->status_phi == SLEEPS)
 		{
 			if (print_time_msg(philos, PINK "sleeps") == 0)
 				return (NULL);
@@ -55,7 +55,7 @@ void	*simulation_loop(void *arg)
 				return (NULL);
 			philos->status_phi = THINKS;
 		}
-		if (philos->status_phi = DIEDS)
+		if (philos->status_phi == DIEDS)
 			return(philo_died(philos));
 	}
 	return (philos);
@@ -68,9 +68,9 @@ void	*simulation_noloop(void *arg)
 	philos = (t_philosop *)arg; //pasamos el argumento a la 
 	while (1)
 	{
-		if (philos->status_phi = THINKS)
+		if (philos->status_phi == THINKS)
 			philo_eats(philos);
-		if (philos->status_phi = SLEEPS)
+		if (philos->status_phi == SLEEPS)
 		{
 			if (print_time_msg(philos, PINK "sleeps") == 0)
 				return (NULL);
@@ -80,7 +80,7 @@ void	*simulation_noloop(void *arg)
 				return (NULL);
 			philos->status_phi = THINKS;
 		}
-		if (philos->status_phi = DIEDS)
+		if (philos->status_phi == DIEDS)
 			return(philo_died(philos));
 	}
 	return (philos);

@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:27:48 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/07 23:12:25 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/10 19:28:05 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/philo.h"
 
 /*
-	cambiar la carpeta libft_tools por tools y anidar en src
-	
+	cambiar la carpeta libft_tools por tools y anidar en src.
 	Philosop has finished eating, they put their forks back
 	on the table and start sleeping. Once awake, they start 
 	thinking again.

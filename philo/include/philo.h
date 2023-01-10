@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:46:04 by fnieves-          #+#    #+#             */
-/*   Updated: 2023/01/08 23:56:47 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/10 21:17:18 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,8 @@ t_status_phi	time_countdown(t_philosop *philos, int time_count);
 int				philo_takefork(t_philosop *philos, pthread_mutex_t *mutx);
 int				philo_takeone(t_philosop *philos, pthread_mutex_t *mutx);
 void			fork_release(t_philosop *philos, pthread_mutex_t *mutx);
-
-
-
+int				fork_takeone(t_philosop *philos, pthread_mutex_t *mutx);
+void			philo_eats(t_philosop *philos);
 
 
 
