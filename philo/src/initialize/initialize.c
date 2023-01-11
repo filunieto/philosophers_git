@@ -6,11 +6,22 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 21:02:31 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/11 12:17:54 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:35:01 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
+
+void	init_struct(t_main_philo *philo)
+{
+	philo->numb_ph = 0;
+	philo->time_die = 0;
+	philo->time_eat = 0;
+	philo->time_sleep = 0;
+	philo->min_times_eat = 0;
+	philo->loop = 0; // presuponemos que hay min numero de comida (no hay loop)
+	philo->running = 1; //la cena está teniendo lugar
+}
 
 /*
 	Creando filosofos:

@@ -6,13 +6,16 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:27:48 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/11 15:51:21 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:35:46 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/philo.h"
 
+
+
 /*
+	Cambiar las frases:  has taken a fork 
 	cambiar la carpeta libft_tools por tools y anidar en src.
 	Philosop has finished eating, they put their forks back
 	on the table and start sleeping. Once awake, they start 
@@ -23,18 +26,6 @@
 	max time philos can think = time_die - time_sleep.
 */
 
-
-void	init_struct(t_main_philo *philo)
-{
-	philo->numb_ph = 0;
-	philo->time_die = 0;
-	philo->time_eat = 0;
-	philo->time_sleep = 0;
-	philo->min_times_eat = 0;
-	philo->loop = 0; // presuponemos que hay min numero de comida (no hay loop)
-	philo->running = 1; //la cena está teniendo lugar
-}
-
 int	main(int argc, char**argv)
 {
 	t_main_philo	philo;
@@ -42,8 +33,6 @@ int	main(int argc, char**argv)
 	init_struct(&philo);
 	if (parser_arg(argc, argv, &philo))
 		exit(EXIT_FAILURE);
-	//printf("valores en int de argumentos en main %i, %i, %i, %i.[%i] \n",philo.numb_ph, 
-	//philo.time_die, philo.time_eat, philo.time_sleep, philo.min_times_eat );
 	if (init_philo(&philo))
 		exit(EXIT_FAILURE);
 	if (mutex_philo(&philo))
