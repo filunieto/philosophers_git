@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:46:04 by fnieves-          #+#    #+#             */
-/*   Updated: 2023/01/10 21:17:18 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:50:59 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int		mutex_philo(t_main_philo *philo);
 
 //philo/src/create
 int				create_philo(t_main_philo *philo);
-void			*simulation_loop(void *arg);
-void			*simulation_noloop(void *arg);
+void			*infinite_simulation(void *arg);
+void			*simulation_finite(void *arg);
 int				print_time_msg(t_philosop *philos, char *messg);
 int				gettimediff(struct timeval *t);
 long			get_actual_time(void);
@@ -55,6 +55,8 @@ int				philo_takeone(t_philosop *philos, pthread_mutex_t *mutx);
 void			fork_release(t_philosop *philos, pthread_mutex_t *mutx);
 int				fork_takeone(t_philosop *philos, pthread_mutex_t *mutx);
 void			philo_eats(t_philosop *philos);
+int				join_philo(t_main_philo *philo);
+
 
 
 

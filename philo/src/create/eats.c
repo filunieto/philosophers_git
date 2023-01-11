@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:44:35 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/10 21:15:41 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:10:26 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	philo_takefork(t_philosop *philos, pthread_mutex_t *mutx)
 		+ philos->start_eating.tv_usec / 1000;
 	while (fork_takeone(philos, mutx) == 0)
 	{
-		if (time_eating + philos->philo->time_die < get_actual_time())
+		if (time_eating + philos->philo->time_die < get_actual_time()) //si el momento en el que coge el tenedor es posterior a el tiempo de morir
 		{
 			philos->status_phi = DIEDS;
 			return (0);

@@ -6,7 +6,7 @@
 #    By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/29 11:17:17 by fnieves           #+#    #+#              #
-#    Updated: 2023/01/10 21:21:02 by fnieves-         ###   ########.fr        #
+#    Updated: 2023/01/11 15:47:36 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC			=	main.c								\
 				src/create/create.c					\
 				src/create/time.c					\
 				src/create/eats.c					\
+				src/create/join.c					\
 
 GREEN		=	\033[32;1m
 RED			=	\033[0;31m

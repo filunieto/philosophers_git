@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:46:04 by fnieves-          #+#    #+#             */
-/*   Updated: 2023/01/07 13:38:27 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/11 15:24:31 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 
 typedef enum e_status_phi
 {
-	EATS,
-	SLEEPS,
-	THINKS,
-	DIEDS,
+	EATS,  //0
+	SLEEPS, //1
+	THINKS, //2
+	DIEDS, //3
 	NOSTATUS,
 }t_status_phi;
 

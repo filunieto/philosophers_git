@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 21:02:31 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/08 22:44:18 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/11 12:17:54 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,10 @@ int	init_philo(t_main_philo *philo)
 }
 
 /*
-	inicializmos el mutex en cada tenedr izquierdo y lo igualaremos  al
-	tenedor derecho del siguiente filosofo
+	Inicializmos el mutex en cada tenedr izquierdo. Si además hay más de un filosofo,
+	lo igualaremos al tenedor derecho del siguiente filosofo.
+	Aparte inicializamos el mutex  print y run
+	En total inicializmos  3 Mutex: tenedor, print y run 
 */
 
 int	mutex_philo(t_main_philo *philo)
@@ -87,7 +89,7 @@ int	mutex_philo(t_main_philo *philo)
 		if (pthread_mutex_init(&philo->philos[i].mutx_left_fork, NULL) != 0)
 			return (print_error(ERR_INI_MUTX, 0));
 	}
-	if (philo->numb_ph > 1)
+	if (philo->numb_ph > 1) //si hay más de un filosofo igualamaos el fork izquierdo  de filososofo i , con el fork derecho de filsoofo i +1
 	{
 		i = -1;
 		while (++i < philo->numb_ph) //hay que poner el adress & below?

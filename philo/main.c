@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:27:48 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/10 19:28:05 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:51:21 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,15 @@ int	main(int argc, char**argv)
 	init_struct(&philo);
 	if (parser_arg(argc, argv, &philo))
 		exit(EXIT_FAILURE);
-	printf("valores en int de argumentos en main %i, %i, %i, %i.[%i] \n",philo.numb_ph, 
-	philo.time_die, philo.time_eat, philo.time_sleep, philo.min_times_eat );
+	//printf("valores en int de argumentos en main %i, %i, %i, %i.[%i] \n",philo.numb_ph, 
+	//philo.time_die, philo.time_eat, philo.time_sleep, philo.min_times_eat );
 	if (init_philo(&philo))
 		exit(EXIT_FAILURE);
 	if (mutex_philo(&philo))
 		exit(EXIT_FAILURE);
-	if (create_philo(&philo))
+	if (create_philo(&philo)) //podemos llamarrlo start dinner?
+		exit(EXIT_FAILURE);
+	if (join_philo(&philo))
 		exit(EXIT_FAILURE);
 	//write(1, OK, ft_strlen(OK));
 	return (0);

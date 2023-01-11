@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 21:24:20 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/10 19:48:16 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:34:53 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,25 @@ void	*philo_died(t_philosop *philos)
 		// printf(GRAY"%d %s \033[1;36m%3d  %s\n\033[1;37m", new_diff,
 		// 	"ms", ph->id, RED"has died");
 	if (running)
-		printf(GRAY"%d ms	"CYAN7"%3d  "RED"%s\n"CYAN"", new_diff, philos->id, "has died");
+		printf(GRAY"%d ms	"CYAN7"%3d  "RED"%s\n", new_diff, philos->id, "has died");
 	return (NULL);
 }
 
 /*
 	Pasamos el parametro de la función arg
-	
+	Si el filosofo está pensando que  intente comer.
+	EATS, 0
+	SLEEPS, 1
+	THINKS, 2
+	DIEDS, 3
+	NOSTATUS, 4
 */
-void	*simulation_loop(void *arg)
+void	*infinite_simulation(void *arg)
 {
 	t_philosop	*philos;
 
 	philos = (t_philosop *)arg;
+	//printf("Philosofer %i, estado %i \n", philos->id, philos->status_phi);
 	while (1)
 	{
 		if (philos->status_phi == THINKS) //si está pensadno , que intente comer
@@ -50,9 +56,12 @@ void	*simulation_loop(void *arg)
 			if (print_time_msg(philos, PINK "sleeps") == 0)
 				return (NULL);
 			philos->status_phi = SLEEPS;//??
+			//write(1,"1 cambia al estado sleeps en unfinit simulat?\n",46);
 			time_countdown(philos, philos->philo->time_sleep);
-			if (print_time_msg(philos, BLUE "thinks") == 0)
+			//write(1,"2 cambia al estado THINKS en unfinit simulat?\n",48);
+			if (print_time_msg(philos, GRAY "thinks") == 0)
 				return (NULL);
+			//write(1,"3 cambia al estado THINKS en unfinit simulat?\n",48); //aqui parece que no llega
 			philos->status_phi = THINKS;
 		}
 		if (philos->status_phi == DIEDS)
@@ -61,16 +70,16 @@ void	*simulation_loop(void *arg)
 	return (philos);
 }
 
-void	*simulation_noloop(void *arg)
+void	*simulation_finite(void *arg)
 {
 	t_philosop	*philos;
 
 	philos = (t_philosop *)arg; //pasamos el argumento a la 
-	while (1)
+	while (philos->min_times_eat > 0)
 	{
 		if (philos->status_phi == THINKS)
 			philo_eats(philos);
-		if (philos->status_phi == SLEEPS)
+		if (philos->status_phi == SLEEPS && philos->min_times_eat > 0)
 		{
 			if (print_time_msg(philos, PINK "sleeps") == 0)
 				return (NULL);
@@ -96,18 +105,18 @@ int	create_philo(t_main_philo *philo)
 {
 	int		i;
 
-	gettimeofday((struct timeval *)&philo->start_dinner, NULL); //comienza la simulacion
+	gettimeofday((struct timeval *)&philo->start_dinner, NULL); //comienza la simulacion y anotamos el instante
 	i = -1;
 	while (++i < philo->numb_ph)
 	{
 		if (philo->loop)
 		{
-			if (pthread_create(philo->philos[i].th, NULL, &simulation_loop, (void *)&philo->philos[i])) //verificar lo sparametros
+			if (pthread_create(philo->philos[i].th, NULL, &infinite_simulation, (void *)&philo->philos[i])) //verificar lo sparametros
 				return (print_error(ERR_INI_THR , 0));
 		}
 		else
 		{
-			if (pthread_create(philo->philos[i].th, NULL, &simulation_noloop, (void *)&philo->philos[i]))
+			if (pthread_create(philo->philos[i].th, NULL, &simulation_finite, (void *)&philo->philos[i]))
 				return (print_error(ERR_INI_THR , 0));
 		}
 	}

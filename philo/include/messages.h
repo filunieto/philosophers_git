@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   messages.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:34:37 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/09 03:39:09 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/11 13:11:57 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ parameter), otherwise simulation stops when a philosopher dies.\n\
 Example: ./philo 2 800 200 300\n\
 Example: ./philo 4 400 200 200"
 
-# define LEFT_FORK YELLOW"just took the left fork\n" //igual no es necesario el slash n
-# define RIGHT_FORK YELLOW"an also took the right fork\n"
-# define PHILO_EATS GREEN"started eating\n"
+# define LEFT_FORK YELLOW"just took the left fork"RESET"" //igual no es necesario el slash n
+# define RIGHT_FORK YELLOW"an also took the right fork"RESET""
+# define PHILO_EATS GREEN"started eating"RESET""
 #endif
