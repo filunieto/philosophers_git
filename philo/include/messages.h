@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:34:37 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/11 13:11:57 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:42:58 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@
 
 # define ERROR_ARG RED"number of arguments incorrect\n"
 
-# define OK "todo ok" //borrar
 # define ERR_NUM_PHILO RED"number of philosophers incorrect. At least 1 \
 philosopher required\n"
 # define ERR_NUM_PHILO_2 RED"Please at least 1 \
-philosopher required\n"
+philosopher required and maximum 200\n"
 # define ERR_ARG_TIME RED"Time format not correct: \
 in [ms] and not less than 0\n"
 # define ERR_MALLOC RED"Error: malloc not correct\n"
@@ -57,7 +56,10 @@ parameter), otherwise simulation stops when a philosopher dies.\n\
 Example: ./philo 2 800 200 300\n\
 Example: ./philo 4 400 200 200"
 
-# define LEFT_FORK YELLOW"just took the left fork"RESET"" //igual no es necesario el slash n
-# define RIGHT_FORK YELLOW"an also took the right fork"RESET""
-# define PHILO_EATS GREEN"started eating"RESET""
+# define LEFT_FORK YELLOW"has taken a fork"RESET"" //igual no es necesario el slash n
+# define RIGHT_FORK CYAN"has taken a fork"RESET""
+# define PHILO_EATS GREEN"is eating"RESET""
+# define PHILO_SLEEPS PINK"is sleeping"RESET""
+# define PHILO_THINKS CYAN7"is thinking"RESET""
+# define PHILO_DIED RED"died"RESET""
 #endif

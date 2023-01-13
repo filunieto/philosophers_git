@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:11:13 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/11 15:35:25 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:30:55 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	print_time_msg(t_philosop *philos, char *messg)
 	running = philos->philo->running;
 	//printf("En print_time_msg: Philosofer %i, estado %i \n", philos->id, philos->status_phi);
 	if (running)
-		printf(GRAY"%d ms	"BLUE"%3d  %s\n"GREEN"", new_diff, philos->id, messg);
+		printf(GRAY"%d "BLUE"%d %s\n", new_diff, philos->id, messg);
 	pthread_mutex_unlock(&philos->philo->mutex_run);
 	pthread_mutex_unlock(&philos->philo->mutex_print);
 	return (running);

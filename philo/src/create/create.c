@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 21:24:20 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/11 15:34:53 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:31:19 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ void	*philo_died(t_philosop *philos)
 		// printf(GRAY"%d %s \033[1;36m%3d  %s\n\033[1;37m", new_diff,
 		// 	"ms", ph->id, RED"has died");
 	if (running)
-		printf(GRAY"%d ms	"CYAN7"%3d  "RED"%s\n", new_diff, philos->id, "has died");
+	{
+		printf(GRAY"%d "BLUE"%d %s\n", new_diff, philos->id, PHILO_DIED);
+	}
 	return (NULL);
 }
 
@@ -53,13 +55,13 @@ void	*infinite_simulation(void *arg)
 			philo_eats(philos);
 		if (philos->status_phi == SLEEPS)
 		{
-			if (print_time_msg(philos, PINK "sleeps") == 0)
+			if (print_time_msg(philos, PHILO_SLEEPS) == 0)
 				return (NULL);
 			philos->status_phi = SLEEPS;//??
 			//write(1,"1 cambia al estado sleeps en unfinit simulat?\n",46);
 			time_countdown(philos, philos->philo->time_sleep);
 			//write(1,"2 cambia al estado THINKS en unfinit simulat?\n",48);
-			if (print_time_msg(philos, GRAY "thinks") == 0)
+			if (print_time_msg(philos, PHILO_THINKS) == 0)
 				return (NULL);
 			//write(1,"3 cambia al estado THINKS en unfinit simulat?\n",48); //aqui parece que no llega
 			philos->status_phi = THINKS;

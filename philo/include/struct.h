@@ -6,13 +6,14 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:46:04 by fnieves-          #+#    #+#             */
-/*   Updated: 2023/01/11 15:24:31 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:39:32 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 #define STRUCT_H
 
+#define MAX_PHILO 200
 /*
 	Tenemos una etructura que apunta a otra estructura y así sucesivamente
 	porque solo podemos pasar un parametro a las funciones de los threads.
