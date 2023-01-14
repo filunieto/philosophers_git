@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:46:04 by fnieves-          #+#    #+#             */
-/*   Updated: 2023/01/13 13:47:10 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/14 14:12:35 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 //philo/src/parser
 int		print_error(char *error_mes, int usage);
-int		free_err_exit(t_main_philo *philo);
+int		free_err_exit(t_main_philo *philo);//quitar
 int		parser_arg(int argc, char**argv, t_main_philo *philo);
 void	free_main_str(t_main_philo *philo);
 

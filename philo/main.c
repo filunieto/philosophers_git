@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:27:48 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/13 14:00:19 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/14 14:07:14 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ void	check_leaks(void)
 }
 
 /*
+	Decalaramos una variable con la estructiura principal, l ainicizliazmos y 
+	vamos pasando por cada fase.
+	
 	Cambiar las frases:  has taken a fork 
 	cambiar la carpeta libft_tools por tools y anidar en src.
 	Philosop has finished eating, they put their forks back
@@ -30,6 +33,10 @@ void	check_leaks(void)
 	int					time_sleep;
 	max time philos can think = time_die - time_sleep.
 	Mañana a partir de Hoomen , empezar despues de parseo . Verificar las estructuras
+	
+	Check how the death of a philosopher is verified and if there is a
+	mutex to prevent a philosopher from dying and starting eating at the
+	same time.
 */
 
 int	main(int argc, char**argv)
@@ -51,6 +58,6 @@ int	main(int argc, char**argv)
 		exit(EXIT_FAILURE);
 	free_philo(&philo);
 	//write(1, OK, ft_strlen(OK));
-	//atexit(check_leaks);
+	atexit(check_leaks);
 	return (0);
 }

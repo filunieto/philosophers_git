@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:34:37 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/13 12:42:58 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/14 14:51:59 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ philosopher required and maximum 200\n"
 # define ERR_ARG_TIME RED"Time format not correct: \
 in [ms] and not less than 0\n"
 # define ERR_MALLOC RED"Error: malloc not correct\n"
+# define ERR_MALLOC_TH RED"Error: malloc of threads not correct\n"
 # define ERR_INI_MUTX RED"Error: Failed to initialize mutex\n"
 # define ERR_INI_THR RED"Error: Failed to create pthread\n"
 

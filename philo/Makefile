@@ -6,7 +6,7 @@
 #    By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/29 11:17:17 by fnieves           #+#    #+#              #
-#    Updated: 2023/01/11 15:47:36 by fnieves-         ###   ########.fr        #
+#    Updated: 2023/01/14 14:35:02 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ OBJ			=	$(SRC:.c=.o)
 SRC			=	main.c								\
 				src/parser/parser.c					\
 				src/parser/error.c 					\
-				tools/libft_tools/ft_strlen.c		\
-				tools/libft_tools/atoi_phi.c		\
-				tools/libft_tools/ft_calloc.c		\
+				src/libft_tools/ft_strlen.c			\
+				src/libft_tools/atoi_phi.c			\
+				src/libft_tools/ft_calloc.c			\
 				src/initialize/initialize.c			\
 				src/create/create.c					\
 				src/create/time.c					\

@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 14:58:30 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/13 13:59:00 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/14 14:51:19 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	free_err_exit(t_main_philo *philo)
 	}
 	free(philo->philos);
 	philo->philos = NULL;
-	return(print_error(ERR_MALLOC, 0)); //en este caso no haría falta poner a NULL ya que hacemos exit
+	return(print_error(ERR_MALLOC_TH, 0)); //en este caso no haría falta poner a NULL ya que hacemos exit
 }
 
 void	free_philo(t_main_philo *philo)

@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 21:02:31 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/13 13:48:54 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/14 14:45:56 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	new_philosop(int i, t_philosop *philos ,t_main_philo *philo)
 
 /*
 	Creamos el array a punteros a la estrcutura con el numero de philosofos total
-	Malloquemos cada  thread y le asignamos un nuevo filosofo
-	Desues de crear los filosofos 
+	Reservamos espacio para cada  thread y le asignamos un nuevo filosofo
+	Despues de crear los filosofos 
 	philo->philos[i].next = &philo->philos[(i + 1) % philo->numb_ph];
 	los encadenamos en una lista cerrada
 */
@@ -60,14 +60,14 @@ int	init_philo(t_main_philo *philo)
 	int	i;
 
 	i = -1;
-	philo->philos = (t_philosop *)malloc(sizeof(t_philosop) * philo->numb_ph); //array de punteros  a philosophers.
-	//philo->philos = (t_philosop *)ft_calloc(sizeof(t_philosop), philo->numb_ph); //sería esta la manera correcta de llamar a calloc
+	//philo->philos = (t_philosop *)malloc(sizeof(t_philosop) * philo->numb_ph); //array de punteros  a philosophers.
+	philo->philos = (t_philosop *)ft_calloc(philo->numb_ph, sizeof(t_philosop)); //sería esta la manera correcta de llamar a calloc
 	if (!philo->philos)
 		return(print_error(ERR_MALLOC, 0));
 	while (++i < philo->numb_ph)
 	{
 		//write(1, "en while\n", 10);	
-		philo->philos[i].th = (pthread_t *)malloc(sizeof(pthread_t)); //usar calloc como arriba?
+		philo->philos[i].th = (pthread_t *)ft_calloc(1, sizeof(pthread_t)); //usar calloc como arriba?
 		if (!philo->philos[i].th)
 			free_err_exit(philo); //hay que liberar cada philo[i].th y despues la estruct completa. mejor usar calloc previamente?
 		new_philosop(i, &philo->philos[i], philo);

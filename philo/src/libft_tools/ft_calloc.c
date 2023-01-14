@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:40:36 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/05 20:41:38 by fnieves          ###   ########.fr       */
+/*   Updated: 2023/01/14 14:40:13 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static void	ft_bzero(void *s, size_t n)
 }
 
 /*
- ** returns a pointer of zeros of 'nmebl' element
- ** of size bytes.
+	Returns a pointer of zeros of 'nmeb' element
+	of size bytes.
  */
 void	*ft_calloc(size_t nmemb, size_t size)
 {
