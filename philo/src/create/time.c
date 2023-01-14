@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:11:13 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/14 21:23:05 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:40:57 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int	print_time_msg(t_philosop *philos, char *messg)
 }
 
 /*
-	como funcion	print_time_msg
+	Same as print_time_msg(), but it does not lock the print function
+	and will set variable running to 0
 */
 void	*philo_died(t_philosop *philos)
 {
@@ -97,8 +98,7 @@ long	get_actual_time(void)
 	than the start time plus the time it takes the philosopher to eat.
 	Inside the while loop it calls the usleep(100) function to sleep for 100 microseconds and then updates
 */
-
-t_status_phi	time_countdown(t_philosop *philos, int time_count) //time count = tiempo necesario para comer
+t_status_phi	time_countdown(t_philosop *philos, int time_count)
 {
 	long	start;
 	long	now;

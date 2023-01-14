@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 21:24:20 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/14 21:23:13 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:39:02 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,17 @@
 	DIEDS, 3
 	NOSTATUS, 4
 */
+/*
+	Run by a thread for each philosopher, simulating their actions in an infinite loop.
+	The function takes a pointer to a t_philosop struct as an argument,
+	which contains information about the philosopher such as their ID, status, and forks.
+	The function first checks the philosopher's status. If they are thinking, 
+	it calls the philo_eats() function to make them acquire and eat with their forks.
+	If they are sleeping, it calls the print_time_msg() function to print a message indicating 
+	that the philosopher is sleeping, updates their status, and then calls the time_countdown()
+	function to wait for a certain amount of time (the time it takes the philosopher to sleep) to pass. After the waiting, it calls the print_time_msg() function again to print a message indicating that the philosopher is now thinking and updates their status. If the philosopher's status is DIEDS, it calls the philo_died() function.
+*/
+
 void	*infinite_simulation(void *arg)
 {
 	t_philosop	*philos;
@@ -37,7 +48,7 @@ void	*infinite_simulation(void *arg)
 		{
 			if (print_time_msg(philos, PHILO_SLEEPS) == 0)
 				return (NULL);
-			philos->status_phi = SLEEPS;
+			//philos->status_phi = SLEEPS;
 			time_countdown(philos, philos->philo->time_sleep);
 			if (print_time_msg(philos, PHILO_THINKS) == 0)
 				return (NULL);
@@ -62,7 +73,7 @@ void	*simulation_finite(void *arg)
 		{
 			if (print_time_msg(philos, PINK "sleeps") == 0)
 				return (NULL);
-			philos->status_phi = SLEEPS;
+			//philos->status_phi = SLEEPS;
 			time_countdown(philos, philos->philo->time_sleep);
 			if (print_time_msg(philos, BLUE "thinks") == 0)
 				return (NULL);
