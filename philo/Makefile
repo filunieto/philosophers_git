@@ -6,7 +6,7 @@
 #    By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/29 11:17:17 by fnieves           #+#    #+#              #
-#    Updated: 2023/01/14 14:35:02 by fnieves-         ###   ########.fr        #
+#    Updated: 2023/01/14 20:08:15 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC			=	main.c								\
 				src/create/create.c					\
 				src/create/time.c					\
 				src/create/eats.c					\
-				src/create/join.c					\
+				src/join/join.c						\
+
 
 GREEN		=	\033[32;1m
 RED			=	\033[0;31m
@@ -44,19 +45,14 @@ $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@echo "$(GREEN) $(NAME) compiled succesfully!"
 
-
-
 clean:
 	@${RM} ${OBJ}
 	@echo "$(YELLOW)object files of philo were removed."
 
 fclean: clean
 	@${RM} ${NAME}
-	@echo "$(BLUE)$(NAME) file  was also removed.$(RESET)"
+	@echo "$(BLUE)$(NAME) file  was also removed."
 
 re: fclean all
 
 .PHONY: all clean fclean re
-
-
-# gcc -Wall -Wextra -Werror -pthread  -lpthread threads_main_philo.c -o threads_main_philo

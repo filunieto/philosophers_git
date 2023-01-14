@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:46:04 by fnieves-          #+#    #+#             */
-/*   Updated: 2023/01/14 14:12:35 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:25:55 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	*ft_calloc(size_t nmemb, size_t size);
 //philo/src/initialize
 void	init_struct(t_main_philo *philo);
 int		init_philo(t_main_philo *philo);
-int		mutex_philo(t_main_philo *philo);
+int		init_mutex_philo(t_main_philo *philo);
 void	free_philo(t_main_philo *philo);
 
 
 //philo/src/create
-int				create_philo(t_main_philo *philo);
+int				lets_start_dinning(t_main_philo *philo);
 void			*infinite_simulation(void *arg);
 void			*simulation_finite(void *arg);
 int				print_time_msg(t_philosop *philos, char *messg);
@@ -59,6 +59,8 @@ void			fork_release(t_philosop *philos, pthread_mutex_t *mutx);
 int				fork_takeone(t_philosop *philos, pthread_mutex_t *mutx);
 void			philo_eats(t_philosop *philos);
 int				join_philo(t_main_philo *philo);
+void			*philo_died(t_philosop *philos);
+
 
 
 void	check_leaks(void);

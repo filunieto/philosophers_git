@@ -6,12 +6,15 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 21:02:31 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/14 14:45:56 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/14 20:13:37 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
-
+/*
+	philo->loop = 0; we assume that there is min number of food (no loop)
+	philo->running = 1; dinner is taking place
+*/
 void	init_struct(t_main_philo *philo)
 {
 	philo->numb_ph = 0;
@@ -19,91 +22,86 @@ void	init_struct(t_main_philo *philo)
 	philo->time_eat = 0;
 	philo->time_sleep = 0;
 	philo->min_times_eat = 0;
-	philo->loop = 0; // presuponemos que hay min numero de comida (no hay loop)
-	philo->running = 1; //la cena está teniendo lugar
+	philo->loop = 0;
+	philo->running = 1;
 }
 
 /*
-	Creando filosofos:
-	Los pares comienzan pensando y listos para comer, y los 
-	impares durmiendo.
-	Se les asigna la estructura prnicpal
-	Cominezan sin tenedor
-	Se les asigna, el instante de la hora actual
+	Creating philosophers:
+	The even-numbered start thinking and ready to eat, and the 
+	odd-numbered start sleeping. 
+	They are assigned the main structure
+	They start without a fork
+	They are assigned the instant of the current time of their creation, 
+	and we save it in philos->start_eating.
 */
 
 void	new_philosop(int i, t_philosop *philos ,t_main_philo *philo)
 {
-	philos->id = i + 1; //desde 1 hasta nb_philo 
-	if (i % 2 == 0) //es philosofo par
+	philos->id = i + 1;
+	if (i % 2 == 0)
 		philos->status_phi = THINKS;
 	else 
 		philos->status_phi = SLEEPS;
 	philos->has_fork = 0;
-	philos->philo = philo; //la estructura del filosofo apunta a la estructura main
+	philos->philo = philo;
 	philos->next = NULL;
 	philos->min_times_eat = philo->min_times_eat;
-	gettimeofday((struct timeval *)&philos->start_eating, NULL); //nos da la hora en ms .Momento en el que nace el filososo
-	//la estructura de arriba podría ser long en lugar de (struct timeval *)??
-	//write(1, "despues de gettime\n", 30);
+	gettimeofday((struct timeval *)&philos->start_eating, NULL);
 }
 
 /*
-	Creamos el array a punteros a la estrcutura con el numero de philosofos total
-	Reservamos espacio para cada  thread y le asignamos un nuevo filosofo
-	Despues de crear los filosofos 
+	Create the array of pointers to the structure with the total number of philosophers.
+	Reserve space for each thread and assign a new philosopher to it.
+	After creating the philosophers, if we have more than 1,
 	philo->philos[i].next = &philo->philos[(i + 1) % philo->numb_ph];
-	los encadenamos en una lista cerrada
+	we concatenate them in a circular list.
+	At the end we also call the initialize mutex function.
 */
 int	init_philo(t_main_philo *philo)
 {
 	int	i;
 
 	i = -1;
-	//philo->philos = (t_philosop *)malloc(sizeof(t_philosop) * philo->numb_ph); //array de punteros  a philosophers.
-	philo->philos = (t_philosop *)ft_calloc(philo->numb_ph, sizeof(t_philosop)); //sería esta la manera correcta de llamar a calloc
+	philo->philos = (t_philosop *)ft_calloc(philo->numb_ph, sizeof(t_philosop));
 	if (!philo->philos)
 		return(print_error(ERR_MALLOC, 0));
 	while (++i < philo->numb_ph)
 	{
-		//write(1, "en while\n", 10);	
-		philo->philos[i].th = (pthread_t *)ft_calloc(1, sizeof(pthread_t)); //usar calloc como arriba?
+		philo->philos[i].th = (pthread_t *)ft_calloc(1, sizeof(pthread_t));
 		if (!philo->philos[i].th)
-			free_err_exit(philo); //hay que liberar cada philo[i].th y despues la estruct completa. mejor usar calloc previamente?
+			free_err_exit(philo);
 		new_philosop(i, &philo->philos[i], philo);
 	}
 	if (philo->numb_ph > 1)
 	{
 		i = -1;
 		while (++i < philo->numb_ph)
-			philo->philos[i].next = &philo->philos[(i + 1) % philo->numb_ph]; //lista circular 
+			philo->philos[i].next = &philo->philos[(i + 1) % philo->numb_ph];
 	}
-	//write(1, "despues de init philo\n", 24);
+	if (init_mutex_philo(philo))
+		return(EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
 
 /*
-	Inicializmos el mutex en cada tenedr izquierdo. Si además hay más de un filosofo,
-	lo igualaremos al tenedor derecho del siguiente filosofo.
-	Aparte inicializamos el mutex  print y run
-	En total inicializmos  3 Mutex: tenedor, print y run 
+	We initialize the mutex in each left tenedr. If in addition 
+	there is more than one filosofo, we will match it to the right
+	fork of the next thread. In addition, we initialize the mutex print 
+	and run. In total we initialize 3 mutex: fork, print and run. 
 */
-
-int	mutex_philo(t_main_philo *philo)
+int	init_mutex_philo(t_main_philo *philo)
 {
 	int	i;
 
 	i = -1;
 	while (++i < philo->numb_ph)
-	{
-		//write(1, "en while mutex\n", 24);
 		if (pthread_mutex_init(&philo->philos[i].mutx_left_fork, NULL) != 0)
 			return (print_error(ERR_INI_MUTX, 0));
-	}
-	if (philo->numb_ph > 1) //si hay más de un filosofo igualamaos el fork izquierdo  de filososofo i , con el fork derecho de filsoofo i +1
+	if (philo->numb_ph > 1)
 	{
 		i = -1;
-		while (++i < philo->numb_ph) //hay que poner el adress & below?
+		while (++i < philo->numb_ph)
 			philo->philos[i].mutx_right_fork = &philo->philos[((i + 1) % philo->numb_ph)].mutx_left_fork;
 	}
 	if (pthread_mutex_init(&philo->mutex_print, NULL) != 0)
