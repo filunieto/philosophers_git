@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:34:37 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/14 21:20:32 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/14 22:03:42 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,38 +29,35 @@
 # define REDD  "\e[92m"
 # define RESET  "\e[0m"
 
+# define ERROR_ARG "number of arguments incorrect\n"
 
-# define ERROR_ARG RED"number of arguments incorrect\n"
-
-# define ERR_NUM_PHILO RED"number of philosophers incorrect. At least 1 \
+# define ERR_NUM_PHILO "number of philosophers incorrect. At least 1 \
 philosopher required\n"
-# define ERR_NUM_PHILO_2 RED"Please at least 1 \
+# define ERR_NUM_PHILO2 "Please at least 1 \
 philosopher required and maximum 200\n"
-# define ERR_ARG_TIME RED"Time format not correct: \
+# define ERR_ARG_TIME "Time format not correct: \
 in [ms] and not less than 0\n"
-# define ERR_MALLOC RED"Error: malloc not correct\n"
-# define ERR_MALLOC_TH RED"Error: malloc of threads not correct\n"
-# define ERR_INI_MUTX RED"Error: Failed to initialize mutex\n"
-# define ERR_INI_THR RED"Error: Failed to create pthread\n"
-
-
-# define USAGE GREEN"Usage: ./philo <nbr_of_philosophers> <time\
+# define ERR_MALLOC "Error: malloc not correct\n"
+# define ERR_MALLOC_TH "Error: malloc of threads not correct\n"
+# define ERR_INI_MUTX "Error: Failed to initialize mutex\n"
+# define ERR_INI_THR "Error: Failed to create pthread\n"
+# define USAGE "\033[1;32mUsage: ./philo <nbr_of_philosophers> <time\
 _to_die> <time_to_eat> <time_to_sleep> [min meals]\n\
-"CYAN"<nbr_of_philosophers>\tnumber of philosophers at the table\n\
+\033[1;36m<nbr_of_philosophers>\tnumber of philosophers at the table\n\
 <time_to_die>\t\tmaximum  time [ms] a philosopher can spend\
  without eating\n\
 <time_to_eat>\t\ttime [ms] a philosopher needs to finish her meal\n\
 <time_to_sleep>\t\ttime [ms] a philosopher spends sleeping\n\
 [min meals]\t\tminimal number of times each philosopher must eat (optional \
 parameter), otherwise simulation stops when a philosopher dies.\n\
-"RESET"Example: ./philo 2 120 20 20 2\n\
+Example: ./philo 2 120 20 20 2\n\
 Example: ./philo 2 800 200 300\n\
 Example: ./philo 4 400 200 200"
 
-# define LEFT_FORK YELLOW"has taken a fork"RESET"" //igual no es necesario el slash n
-# define RIGHT_FORK CYAN"has taken a fork"RESET""
-# define PHILO_EATS GREEN"is eating"RESET""
-# define PHILO_SLEEPS PINK"is sleeping"RESET""
-# define PHILO_THINKS CYAN7"is thinking"RESET""
-# define PHILO_DIED RED"died"RESET""
+# define LEFT_FORK "\033[1;33mhas taken a fork"
+# define RIGHT_FORK "\033[1;36mhas taken a fork"
+# define PHILO_EATS "\033[1;32mis eating"
+# define PHILO_SLEEPS "\033[1;35mis sleeping"
+# define PHILO_THINKS "\033[1;37mis thinking"
+# define PHILO_DIED "\033[1;31mdied"
 #endif

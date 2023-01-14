@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:27:48 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/14 21:28:56 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:43:00 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ int	main(int argc, char**argv)
 	if (join_philo(&philo))
 		exit(EXIT_FAILURE);
 	free_philo(&philo);
-	atexit(check_leaks);//quitarla
 	return (0);
 }

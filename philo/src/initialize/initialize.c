@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 21:02:31 by fnieves           #+#    #+#             */
-/*   Updated: 2023/01/14 20:13:37 by fnieves-         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:49:28 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ void	init_struct(t_main_philo *philo)
 	and we save it in philos->start_eating.
 */
 
-void	new_philosop(int i, t_philosop *philos ,t_main_philo *philo)
+void	new_philosop(int i, t_philosop *philos, t_main_philo *philo)
 {
 	philos->id = i + 1;
 	if (i % 2 == 0)
 		philos->status_phi = THINKS;
-	else 
+	else
 		philos->status_phi = SLEEPS;
 	philos->has_fork = 0;
 	philos->philo = philo;
@@ -51,11 +51,12 @@ void	new_philosop(int i, t_philosop *philos ,t_main_philo *philo)
 }
 
 /*
-	Create the array of pointers to the structure with the total number of philosophers.
-	Reserve space for each thread and assign a new philosopher to it.
-	After creating the philosophers, if we have more than 1,
+	Create the array of pointers to the structure with the total number
+	of philosophers. Reserve space for each thread and assign a
+	new philosopher to it. After creating the philosophers, if 
+	we have more than 1,
 	philo->philos[i].next = &philo->philos[(i + 1) % philo->numb_ph];
-	we concatenate them in a circular list.
+	We concatenate them in a circular list.
 	At the end we also call the initialize mutex function.
 */
 int	init_philo(t_main_philo *philo)
@@ -65,7 +66,7 @@ int	init_philo(t_main_philo *philo)
 	i = -1;
 	philo->philos = (t_philosop *)ft_calloc(philo->numb_ph, sizeof(t_philosop));
 	if (!philo->philos)
-		return(print_error(ERR_MALLOC, 0));
+		return (print_error(ERR_MALLOC, 0));
 	while (++i < philo->numb_ph)
 	{
 		philo->philos[i].th = (pthread_t *)ft_calloc(1, sizeof(pthread_t));
@@ -80,7 +81,7 @@ int	init_philo(t_main_philo *philo)
 			philo->philos[i].next = &philo->philos[(i + 1) % philo->numb_ph];
 	}
 	if (init_mutex_philo(philo))
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
 
@@ -102,7 +103,8 @@ int	init_mutex_philo(t_main_philo *philo)
 	{
 		i = -1;
 		while (++i < philo->numb_ph)
-			philo->philos[i].mutx_right_fork = &philo->philos[((i + 1) % philo->numb_ph)].mutx_left_fork;
+			philo->philos[i].mutx_right_fork = &philo->philos[((i + 1) % \
+				philo->numb_ph)].mutx_left_fork;
 	}
 	if (pthread_mutex_init(&philo->mutex_print, NULL) != 0)
 		return (print_error(ERR_INI_MUTX, 0));
